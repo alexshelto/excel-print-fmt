@@ -14,6 +14,11 @@ python3 main.py filename --exclude 1 2 4
 optional argument: -e/--exclude, column numbers to exclude from formatted print
 
 
+
+### Example Input file
+<img src="https://raw.githubusercontent.com/alexshelto/simplest-tester/main/screenshot/inputfile.png" />
+
+
 ### Example on test sheet in /test
 ```python3 main.py test.xlsx -e 1 2```
 
