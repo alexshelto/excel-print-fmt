@@ -1,5 +1,7 @@
 # excel-print-fmt
-
+### Backstory
+I was tasked with the duty of moving all spreadsheet data to a new web site where the information would be inputted in a singular 'notes' field. 
+This script can remove some of the manual labor allowing me to just copy and paste the information over which is way faster than typing everything.  
 
 ## What does this do?
 * formats and prints excel spread sheet cell data by row
