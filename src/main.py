@@ -5,7 +5,6 @@ from typing import Optional, Sequence
 
 
 
-
 def generate(sheet, exclude):
     # Generating column labels for output
     col_names = []
@@ -29,19 +28,24 @@ def generate(sheet, exclude):
 
 
 
-if __name__ == '__main__':
+def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument('filename', help='input file name')
+    parser.add_argument('filename', help='filename or relative path')
     parser.add_argument('-e','--exclude', nargs='+', help='columns to ignore')
 
     args = parser.parse_args()
-    print(args)
+    exclude_nums = [int(i) for i in args.exclude] if args.exclude != None else []
 
-    xlsx_file = Path('../test', 'test1.xlsx') 
-    wb_obj = openpyxl.load_workbook(xlsx_file) 
-    sheet = wb_obj.active
+    #xlsx_file = Path('../test', 'test1.xlsx')
+    try:
+        wb_obj = openpyxl.load_workbook(args.filename)
+        sheet = wb_obj.active
+    except:
+        print('Error loading file, check your path to the file')
+        return 1
     
-    exclude_nums = [int(i) for i in args.exclude]
     generate(sheet, set(exclude_nums))
-    exit(0)
+    return 0
 
+if __name__ == '__main__':
+    exit(main())
