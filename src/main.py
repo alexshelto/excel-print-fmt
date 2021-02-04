@@ -1,5 +1,4 @@
 import openpyxl
-from pathlib import Path
 import argparse
 from typing import Optional, Sequence
 
@@ -36,7 +35,6 @@ def main() -> int:
     args = parser.parse_args()
     exclude_nums = [int(i) for i in args.exclude] if args.exclude != None else []
 
-    #xlsx_file = Path('../test', 'test1.xlsx')
     try:
         wb_obj = openpyxl.load_workbook(args.filename)
         sheet = wb_obj.active
